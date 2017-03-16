@@ -50,7 +50,7 @@ func getAuthority(hostPort []string) Result {
 	if err == nil {
 		body, _ := ioutil.ReadAll(response.Body)
 		lenBody := len(body)
-		if lenBody > 1000 {
+		if lenBody > 1700 {
 			subBody := body[1680:1727]
 			i := bytes.Index(subBody, []byte("\x00"))
 			result.username = string(bytes.Trim(subBody[:i], "\x00"))
@@ -89,7 +89,7 @@ func worker(id int, jobs <-chan []string, results chan<- Result) {
 
 func main() {
 	// worker
-	maxWorker = 10
+	maxWorker = 50
 
 	// Logging
 	coreLogFile, err := LoggerInit(LogFile)
