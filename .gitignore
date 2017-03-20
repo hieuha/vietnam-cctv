@@ -1,3 +1,5 @@
 .vscode/
 system/
+shodan/*
 core.txt
+result.txt
